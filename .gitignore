@@ -1,0 +1,47 @@
+# ── Secrets / API keys ─────────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+!.env.example
+
+# ── Python environment ──────────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+
+# ── Jupyter ─────────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb
+
+# ── Raw / large data (NOT committed — too large & not needed for deployment) ────
+data/raw/
+
+# ── Streamlit cache ─────────────────────────────────────────────────────────────
+.streamlit/secrets.toml
+
+# ── OS junk ─────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── IDEs ────────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── Logs ────────────────────────────────────────────────────────────────────────
+*.log
+logs/
