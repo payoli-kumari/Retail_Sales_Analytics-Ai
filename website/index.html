@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Sales Analytics — AI-Powered Business Intelligence</title>
+    <meta name="description" content="AI-Powered Retail Sales Analytics Dashboard analyzing Global Superstore dataset with Python, Streamlit, and AI insights.">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ============================== -->
+    <!--           NAVIGATION           -->
+    <!-- ============================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <i class="fas fa-chart-line"></i>
+                <span>RetailAnalytics</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#overview" class="nav-link">Overview</a></li>
+                <li><a href="#kpis" class="nav-link">KPIs</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#analysis" class="nav-link">Analysis</a></li>
+                <li><a href="#ai-features" class="nav-link">AI Features</a></li>
+                <li><a href="#tech-stack" class="nav-link">Tech Stack</a></li>
+                <li><a href="#demo" class="nav-link cta-link">Live Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ============================== -->
+    <!--          HERO SECTION          -->
+    <!-- ============================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-animation"></div>
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fab fa-python"></i> Python + Streamlit + AI
+            </div>
+            <h1 class="hero-title fade-in">
+                Retail Sales<br>
+                <span class="gradient-text">Analytics</span>
+            </h1>
+            <p class="hero-subtitle fade-in">
+                AI-Powered Business Intelligence Dashboard
+            </p>
+            <p class="hero-description fade-in">
+                Analyzing 51,290 transactions from the Global Superstore dataset (2011–2014) with an end-to-end data pipeline, interactive visualizations, and AI-driven insights.
+            </p>
+            <div class="hero-buttons fade-in">
+                <a href="#dashboard" class="btn btn-primary">
+                    <i class="fas fa-chart-bar"></i> Explore Dashboard
+                </a>
+                <a href="https://payoli-kumari-retail-sales-analytics-ai-app-4fawrp.streamlit.app" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-external-link-alt"></i> View Live Demo
+                </a>
+            </div>
+            <div class="hero-stats fade-in">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">51,290</span>
+                    <span class="hero-stat-label">Transactions</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">4 Years</span>
+                    <span class="hero-stat-label">of Data</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">6 AI</span>
+                    <span class="hero-stat-label">Models Supported</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="mouse-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--      PROJECT OVERVIEW          -->
+    <!-- ============================== -->
+    <section class="section" id="overview">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">About the Project</span>
+                <h2 class="section-title">Project Overview</h2>
+                <p class="section-description">
+                    This project analyzes the <strong>Global Superstore dataset</strong> (51,290 rows, 2011–2014) using Python. 
+                    It includes a complete data pipeline (cleaning → analysis → visualization → forecasting), 
+                    an interactive Streamlit dashboard with 6 filters, and an AI layer that answers business questions.
+                </p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card glass-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #10b981, #059669);">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Data Pipeline</h3>
+                    <p>4-step automated pipeline: cleaning, KPI analysis, chart generation, and Holt-Winters forecasting. Fully reproducible from raw CSV to dashboard.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Automated data cleaning</li>
+                        <li><i class="fas fa-check"></i> Statistical analysis</li>
+                        <li><i class="fas fa-check"></i> Chart generation</li>
+                        <li><i class="fas fa-check"></i> Time-series forecasting</li>
+                    </ul>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card glass-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Interactive Dashboard</h3>
+                    <p>6 sidebar filters, 5 KPI cards, and 10+ interactive Plotly charts across 5 tabs. Explore data dynamically with real-time filtering.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 6 sidebar filters</li>
+                        <li><i class="fas fa-check"></i> 5 KPI indicator cards</li>
+                        <li><i class="fas fa-check"></i> 10+ Plotly charts</li>
+                        <li><i class="fas fa-check"></i> 5 organized tabs</li>
+                    </ul>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card glass-card fade-in">
+                    <div class="feature-icon" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Insights</h3>
+                    <p>Ask the Data with pandas code generation, RAG-based document QA, and auto-generated business insights — all powered by LLMs.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Natural-language queries</li>
+                        <li><i class="fas fa-check"></i> RAG document QA</li>
+                        <li><i class="fas fa-check"></i> Auto business insights</li>
+                        <li><i class="fas fa-check"></i> Multi-LLM support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--         KPI SECTION            -->
+    <!-- ============================== -->
+    <section class="section section-dark" id="kpis">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Performance Metrics</span>
+                <h2 class="section-title">Key Performance Indicators</h2>
+                <p class="section-description">
+                    Core business metrics from 4 years of Global Superstore data (2011–2014).
+                </p>
+            </div>
+            <div class="kpi-grid">
+                <div class="kpi-card glass-card fade-in">
+                    <div class="kpi-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="kpi-value" data-target="12642502" data-prefix="$" data-separator="true">$0</div>
+                    <div class="kpi-label">Total Sales</div>
+                    <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> 4 years of growth</div>
+                </div>
+                <div class="kpi-card glass-card fade-in">
+                    <div class="kpi-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="kpi-value" data-target="1467457" data-prefix="$" data-separator="true">$0</div>
+                    <div class="kpi-label">Total Profit</div>
+                    <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> Consistent margins</div>
+                </div>
+                <div class="kpi-card glass-card fade-in">
+                    <div class="kpi-icon"><i class="fas fa-percentage"></i></div>
+                    <div class="kpi-value" data-target="11.6" data-suffix="%" data-decimals="1">0%</div>
+                    <div class="kpi-label">Profit Margin</div>
+                    <div class="kpi-trend neutral"><i class="fas fa-minus"></i> Room to improve</div>
+                </div>
+                <div class="kpi-card glass-card fade-in">
+                    <div class="kpi-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="kpi-value" data-target="25035" data-separator="true">0</div>
+                    <div class="kpi-label">Total Orders</div>
+                    <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> Growing demand</div>
+                </div>
+                <div class="kpi-card glass-card fade-in">
+                    <div class="kpi-icon"><i class="fas fa-receipt"></i></div>
+                    <div class="kpi-value" data-target="505" data-prefix="$">$0</div>
+                    <div class="kpi-label">Avg Order Value</div>
+                    <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> Healthy AOV</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--      DASHBOARD / CHARTS        -->
+    <!-- ============================== -->
+    <section class="section" id="dashboard">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Visual Analytics</span>
+                <h2 class="section-title">Interactive Dashboard</h2>
+                <p class="section-description">
+                    Comprehensive data visualizations built with Chart.js — explore sales trends, category performance, regional breakdown, and forecasts.
+                </p>
+            </div>
+
+            <!-- Row 1: 2 charts -->
+            <div class="charts-grid charts-grid-2 fade-in">
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-line"></i> Monthly Sales Trend (2011–2014)</h3>
+                        <span class="chart-badge">48 data points</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="monthlySalesChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-bar"></i> Category: Sales vs Profit</h3>
+                        <span class="chart-badge">3 categories</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: 2 charts -->
+            <div class="charts-grid charts-grid-2 fade-in">
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-pie"></i> Sales by Region</h3>
+                        <span class="chart-badge">13 regions</span>
+                    </div>
+                    <div class="chart-container chart-container-doughnut">
+                        <canvas id="regionChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-tags"></i> Profit Margin by Discount Band</h3>
+                        <span class="chart-badge">Critical insight</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="discountChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: 2 charts -->
+            <div class="charts-grid charts-grid-2 fade-in">
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-chart-bar"></i> Yearly Sales Growth</h3>
+                        <span class="chart-badge">Year-over-year</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="yearlyGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card glass-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-crystal-ball"></i> Sales Forecast 2015</h3>
+                        <span class="chart-badge">Holt-Winters</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="forecastChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--      DEEP ANALYSIS SECTION     -->
+    <!-- ============================== -->
+    <section class="section section-dark" id="analysis">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Deep Dive</span>
+                <h2 class="section-title">Deep Analysis</h2>
+                <p class="section-description">
+                    Advanced analytical findings from discount impact analysis, customer segmentation, and category performance.
+                </p>
+            </div>
+
+            <!-- Discount Impact Analysis -->
+            <div class="analysis-block fade-in">
+                <h3 class="analysis-title"><i class="fas fa-percentage"></i> Discount Impact Analysis</h3>
+                <div class="analysis-content">
+                    <div class="analysis-table-wrapper">
+                        <table class="analysis-table">
+                            <thead>
+                                <tr>
+                                    <th>Discount Band</th>
+                                    <th>Profit Margin</th>
+                                    <th>Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0% (No Discount)</td>
+                                    <td class="positive">+25.3%</td>
+                                    <td><span class="impact-badge impact-great">Excellent</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1–10%</td>
+                                    <td class="positive">+17.2%</td>
+                                    <td><span class="impact-badge impact-good">Good</span></td>
+                                </tr>
+                                <tr>
+                                    <td>11–20%</td>
+                                    <td class="positive">+9.9%</td>
+                                    <td><span class="impact-badge impact-okay">Moderate</span></td>
+                                </tr>
+                                <tr>
+                                    <td>21–40%</td>
+                                    <td class="negative">-17.3%</td>
+                                    <td><span class="impact-badge impact-bad">Loss</span></td>
+                                </tr>
+                                <tr>
+                                    <td>40%+</td>
+                                    <td class="negative">-74.1%</td>
+                                    <td><span class="impact-badge impact-critical">Critical Loss</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="analysis-insight">
+                        <div class="insight-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div>
+                            <strong>Correlation: -0.316</strong>
+                            <p>Discounts above 20% destroy profitability. Every percentage point of additional discount in the 20%+ range leads to dramatically negative margins.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Segmentation (RFM) -->
+            <div class="analysis-block fade-in">
+                <h3 class="analysis-title"><i class="fas fa-users"></i> Customer Segmentation (RFM Analysis)</h3>
+                <p class="analysis-description">
+                    RFM = <strong>Recency</strong> (how recently they bought), <strong>Frequency</strong> (how often), <strong>Monetary</strong> (how much they spent). 
+                    Customers are scored and segmented into actionable groups.
+                </p>
+                <div class="rfm-grid">
+                    <div class="rfm-card glass-card">
+                        <div class="rfm-icon champions"><i class="fas fa-trophy"></i></div>
+                        <div class="rfm-count">696</div>
+                        <div class="rfm-label">Champions</div>
+                        <p>Best customers — recent, frequent, high-spending. Keep them engaged with VIP programs.</p>
+                    </div>
+                    <div class="rfm-card glass-card">
+                        <div class="rfm-icon regular"><i class="fas fa-user-check"></i></div>
+                        <div class="rfm-count">390</div>
+                        <div class="rfm-label">Regular</div>
+                        <p>Steady customers with moderate engagement. Nurture them into Champions with targeted offers.</p>
+                    </div>
+                    <div class="rfm-card glass-card">
+                        <div class="rfm-icon at-risk"><i class="fas fa-user-clock"></i></div>
+                        <div class="rfm-count">504</div>
+                        <div class="rfm-label">At Risk</div>
+                        <p>Previously active, now fading. Launch re-engagement campaigns before they churn entirely.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Deep Dive -->
+            <div class="analysis-block fade-in">
+                <h3 class="analysis-title"><i class="fas fa-layer-group"></i> Category Deep Dive</h3>
+                <div class="category-cards">
+                    <div class="category-card glass-card">
+                        <div class="category-header">
+                            <i class="fas fa-couch"></i>
+                            <h4>Furniture</h4>
+                        </div>
+                        <div class="category-margin">
+                            <span class="margin-value low">6.9%</span>
+                            <span class="margin-label">Profit Margin</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="category-bar-fill" style="width: 49%;" data-label="$4.1M Sales"></div>
+                        </div>
+                        <p class="category-note">Lowest margin — needs pricing review</p>
+                    </div>
+                    <div class="category-card glass-card">
+                        <div class="category-header">
+                            <i class="fas fa-paperclip"></i>
+                            <h4>Office Supplies</h4>
+                        </div>
+                        <div class="category-margin">
+                            <span class="margin-value mid">13.7%</span>
+                            <span class="margin-label">Profit Margin</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="category-bar-fill" style="width: 45%;" data-label="$3.8M Sales"></div>
+                        </div>
+                        <p class="category-note">Balanced performance</p>
+                    </div>
+                    <div class="category-card glass-card">
+                        <div class="category-header">
+                            <i class="fas fa-laptop"></i>
+                            <h4>Technology</h4>
+                        </div>
+                        <div class="category-margin">
+                            <span class="margin-value high">14.0%</span>
+                            <span class="margin-label">Profit Margin</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="category-bar-fill" style="width: 56%;" data-label="$4.7M Sales"></div>
+                        </div>
+                        <p class="category-note">Best margin + highest sales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--       AI FEATURES SECTION      -->
+    <!-- ============================== -->
+    <section class="section" id="ai-features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Artificial Intelligence</span>
+                <h2 class="section-title">AI-Powered Features</h2>
+                <p class="section-description">
+                    Three intelligent layers that transform raw data into actionable business answers.
+                </p>
+            </div>
+            <div class="ai-grid fade-in">
+                <!-- Ask the Data -->
+                <div class="ai-card glass-card">
+                    <div class="ai-emoji">🤖</div>
+                    <h3>Ask the Data</h3>
+                    <p>Type a natural-language question → AI generates pandas code → executes on filtered data → returns the answer with the code shown for verification.</p>
+                    <div class="ai-example">
+                        <div class="ai-example-label">Example</div>
+                        <code>"What is the most profitable sub-category?"</code>
+                    </div>
+                    <div class="ai-flow">
+                        <span class="ai-step">Question</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">Pandas Code</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">Answer</span>
+                    </div>
+                </div>
+                <!-- Ask the Project (RAG) -->
+                <div class="ai-card glass-card">
+                    <div class="ai-emoji">📚</div>
+                    <h3>Ask the Project (RAG)</h3>
+                    <p>Documents are split into paragraphs → TF-IDF finds the 3 most relevant paragraphs → AI answers only from those sources → answers from project documentation, not the raw data.</p>
+                    <div class="ai-example">
+                        <div class="ai-example-label">Example</div>
+                        <code>"How does the forecasting model work?"</code>
+                    </div>
+                    <div class="ai-flow">
+                        <span class="ai-step">Docs</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">TF-IDF</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">Context</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">Answer</span>
+                    </div>
+                </div>
+                <!-- AI Insights -->
+                <div class="ai-card glass-card">
+                    <div class="ai-emoji">💡</div>
+                    <h3>AI Insights</h3>
+                    <p>Click a button → dashboard calculates summary stats with pandas → AI writes 5 key insights + 3 business recommendations → all based on the current filtered view.</p>
+                    <div class="ai-example">
+                        <div class="ai-example-label">Output</div>
+                        <code>5 insights + 3 recommendations</code>
+                    </div>
+                    <div class="ai-flow">
+                        <span class="ai-step">Stats</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">LLM</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="ai-step">Insights</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-providers fade-in">
+                <p><i class="fas fa-plug"></i> Supports multiple LLM providers:</p>
+                <div class="provider-badges">
+                    <span class="provider-badge">Groq</span>
+                    <span class="provider-badge">Gemini</span>
+                    <span class="provider-badge">Claude</span>
+                    <span class="provider-badge">Ollama</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--     ARCHITECTURE SECTION       -->
+    <!-- ============================== -->
+    <section class="section section-dark" id="architecture">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">System Design</span>
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-description">
+                    The complete data pipeline — from raw CSV to AI-powered insights — in 7 stages.
+                </p>
+            </div>
+            <div class="pipeline fade-in">
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-file-csv"></i></div>
+                    <div class="pipeline-label">Raw Data</div>
+                    <div class="pipeline-sub">CSV (51,290 rows)</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-broom"></i></div>
+                    <div class="pipeline-label">01_cleaning.py</div>
+                    <div class="pipeline-sub">Data Cleaning</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="pipeline-label">02_analysis.py</div>
+                    <div class="pipeline-sub">KPI Analysis</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-chart-area"></i></div>
+                    <div class="pipeline-label">03_charts.py</div>
+                    <div class="pipeline-sub">Visualizations</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-wave-square"></i></div>
+                    <div class="pipeline-label">04_forecast.py</div>
+                    <div class="pipeline-sub">Holt-Winters</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-desktop"></i></div>
+                    <div class="pipeline-label">app.py</div>
+                    <div class="pipeline-sub">Dashboard</div>
+                </div>
+                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="pipeline-step">
+                    <div class="pipeline-icon"><i class="fas fa-brain"></i></div>
+                    <div class="pipeline-label">llm.py</div>
+                    <div class="pipeline-sub">AI Layer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--       TECH STACK SECTION       -->
+    <!-- ============================== -->
+    <section class="section" id="tech-stack">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Technologies</span>
+                <h2 class="section-title">Tech Stack</h2>
+                <p class="section-description">
+                    The tools and frameworks powering every layer of this project.
+                </p>
+            </div>
+            <div class="tech-grid fade-in">
+                <div class="tech-card glass-card">
+                    <i class="fab fa-python"></i>
+                    <h4>Python 3.10</h4>
+                    <p>Core language</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-table"></i>
+                    <h4>Pandas & NumPy</h4>
+                    <p>Data manipulation</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Plotly</h4>
+                    <p>Interactive charts</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-desktop"></i>
+                    <h4>Streamlit</h4>
+                    <p>Dashboard framework</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-wave-square"></i>
+                    <h4>Statsmodels</h4>
+                    <p>Holt-Winters (MAPE 13.4%)</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-search"></i>
+                    <h4>Scikit-learn</h4>
+                    <p>TF-IDF for RAG</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-brain"></i>
+                    <h4>Groq / Gemini / Claude / Ollama</h4>
+                    <p>LLM providers</p>
+                </div>
+                <div class="tech-card glass-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Chart.js</h4>
+                    <p>This website's charts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--   KEY FINDINGS / RECOMMENDATIONS -->
+    <!-- ============================== -->
+    <section class="section section-dark" id="findings">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag">Actionable Insights</span>
+                <h2 class="section-title">Key Findings & Recommendations</h2>
+                <p class="section-description">
+                    Data-driven recommendations to improve business performance.
+                </p>
+            </div>
+            <div class="recommendations-grid fade-in">
+                <div class="rec-card glass-card">
+                    <div class="rec-number">01</div>
+                    <div class="rec-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>Control High Discounts</h3>
+                    <p>Orders above 20% discount have <strong>negative margins</strong>. Limiting excessive discounts can significantly improve profitability. The data shows a clear correlation of <strong>-0.316</strong> between discount and profit.</p>
+                    <div class="rec-impact">
+                        <span class="rec-impact-label">Impact</span>
+                        <div class="rec-impact-bar">
+                            <div class="rec-impact-fill" style="width: 90%;"></div>
+                        </div>
+                        <span class="rec-impact-text">High</span>
+                    </div>
+                </div>
+                <div class="rec-card glass-card">
+                    <div class="rec-number">02</div>
+                    <div class="rec-icon"><i class="fas fa-couch"></i></div>
+                    <h3>Improve Furniture Margin</h3>
+                    <p>Furniture has the lowest margin at <strong>6.9%</strong> vs Technology at <strong>14.0%</strong>. A thorough pricing and cost review is needed to bring Furniture margins closer to other categories.</p>
+                    <div class="rec-impact">
+                        <span class="rec-impact-label">Impact</span>
+                        <div class="rec-impact-bar">
+                            <div class="rec-impact-fill" style="width: 75%;"></div>
+                        </div>
+                        <span class="rec-impact-text">Medium-High</span>
+                    </div>
+                </div>
+                <div class="rec-card glass-card">
+                    <div class="rec-number">03</div>
+                    <div class="rec-icon"><i class="fas fa-user-clock"></i></div>
+                    <h3>Win Back At-Risk Customers</h3>
+                    <p>RFM analysis identified <strong>504 At-Risk customers</strong>. Targeted re-engagement campaigns can recover lost revenue and reduce churn before these customers leave permanently.</p>
+                    <div class="rec-impact">
+                        <span class="rec-impact-label">Impact</span>
+                        <div class="rec-impact-bar">
+                            <div class="rec-impact-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="rec-impact-text">Medium-High</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--       LIVE DEMO SECTION        -->
+    <!-- ============================== -->
+    <section class="section section-cta" id="demo">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2>Try the Live Dashboard</h2>
+                <p>Experience the full interactive Streamlit dashboard with AI-powered features, real-time filtering, and comprehensive analytics.</p>
+                <div class="cta-buttons">
+                    <a href="https://payoli-kumari-retail-sales-analytics-ai-app-4fawrp.streamlit.app" target="_blank" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i> Launch Live Demo
+                    </a>
+                    <a href="https://github.com/payoli-kumari/Retail_Sales_Analytics-Ai" target="_blank" class="btn btn-outline btn-large">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+                <div class="cta-features">
+                    <span><i class="fas fa-check-circle"></i> No login required</span>
+                    <span><i class="fas fa-check-circle"></i> Fully interactive</span>
+                    <span><i class="fas fa-check-circle"></i> AI-powered</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================== -->
+    <!--            FOOTER              -->
+    <!-- ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-chart-line"></i> RetailAnalytics</h3>
+                    <p>Built by <strong>Payoli Kumari</strong></p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/payoli-kumari/Retail_Sales_Analytics-Ai" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://payoli-kumari-retail-sales-analytics-ai-app-4fawrp.streamlit.app" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Retail Sales Analytics &copy; 2024 &mdash; Analyzing Global Superstore Data with AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/charts.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
